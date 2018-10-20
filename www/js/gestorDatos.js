@@ -34,7 +34,7 @@ var gestorDatos = (function() {
     }
 
     function setNotificacionActual(idNot){
-        NotificacionActual = jQuery.grep(Notificaciones, function( a ) {return a.id == idNot;});
+        NotificacionActual = jQuery.grep(Notificaciones.data, function( a ) {return a.id == idNot;});
     }
 
     function getNotificacionActual(){

@@ -1,34 +1,28 @@
 var index = {};
 index = (function() {
 
-    $(document).delegate('#index', 'pageCreate', function() {
 
-        document.addEventListener('deviceready', function() {
+    document.addEventListener('deviceready', function() {
 
-            util.setUUID(function() {
-                //una vez activado el usuario, obtenemos todos las notificaciones del servidor
-                cargaFuegosNotificados_List(function() {
-                    cargarListado();
-                    cargaMapa();
-                });
-            });
-        }, false);
-    });
+        util.setUUID(function() {
+            //una vez activado el usuario, obtenemos todos las notificaciones del servidor
+            cargaFuegosNotificados_List();
+        });
+    }, false);
 
     var cargaFuegosNotificados_List = function (callback){
 
-        var callbackList = function (datosNotificaciones){
+        Services.ServiciosAJAX("getFuegos", "", function (datosNotificaciones){
             gestorDatos.setNotificaciones(datosNotificaciones);
-            if(callback){
-                callback();
-            }
-        }
+         
+            cargarListado();
+            cargaMapa();
+        });
 
-        Services.ServiciosAJAX("getFuegos", "", callbackList);
     }
 
     var cargaMapa = function (){
-        var map = L.map('map').setView([41.66, -4.72], 15);
+        var map = L.map('mapContainer').setView([41.66, -4.72], 15);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'OpenStreetMap',
             maxZoom: 18

@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="themes/Fire.css" />
+        <link rel="stylesheet" href="js/leaflet/leaflet.css" />
 
         <script type="text/javascript" src="cordova.js"></script>
 
@@ -19,7 +20,8 @@
         <script type="text/javascript" src="js/util.js"></script>
         <script type="text/javascript" src="js/getService.js"></script>
         <script type="text/javascript" src="js/gestorDatos.js"></script>
-        <script type="text/javascript" src="js/mainScreen.js"></script>
+
+        <script type="text/javascript" src="js/leaflet/leaflet-src.js"></script>
     </head>
     <body>
 
@@ -29,14 +31,21 @@
             </div>
             
             <div data-role="tabs" id="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#listaTab" data-ajax="false">Listado</a></li>
+                        <li><a href="#mapaTab" data-ajax="false">Mapa</a></li>
+                    </ul>
+                </div>
+                
                 <div id="listaTab">
                     <ul data-role="listview" id="listadoNotificaciones">
                         
                     </ul>
                 </div>
 
-                <div id="mapaTab">
-                    <div id="mapContainer"></div>
+                <div id="mapaTab" style="height: 100vh;">
+                    <div id="mapContainer" style="height:100%;"></div>
                 </div>
             </div>
 
