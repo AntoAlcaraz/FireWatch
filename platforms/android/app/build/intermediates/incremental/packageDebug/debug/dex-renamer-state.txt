@@ -1,4 +1,4 @@
-#Sat Oct 20 10:59:32 CEST 2018
-base.0=C\:\\Users\\esanchso\\Desktop\\jsNinjaDevs\\fireWatch\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Sat Oct 20 12:36:02 CEST 2018
+base.0=C\:\\Users\\esanchso\\Desktop\\jsNinjaDevs\\FireWatch\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
-file.0=C\:\\Users\\esanchso\\Desktop\\jsNinjaDevs\\fireWatch\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
+file.0=C\:\\Users\\esanchso\\Desktop\\jsNinjaDevs\\FireWatch\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

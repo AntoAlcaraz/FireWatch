@@ -47,11 +47,19 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-plugin-firebase.FirebasePlugin",
-    "file": "plugins/cordova-plugin-firebase/www/firebase.js",
-    "pluginId": "cordova-plugin-firebase",
+    "id": "cordova-plugin-splashscreen.SplashScreen",
+    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+    "pluginId": "cordova-plugin-splashscreen",
     "clobbers": [
-      "FirebasePlugin"
+      "navigator.splashscreen"
+    ]
+  },
+  {
+    "id": "cordova-plugin-device.device",
+    "file": "plugins/cordova-plugin-device/www/device.js",
+    "pluginId": "cordova-plugin-device",
+    "clobbers": [
+      "device"
     ]
   }
 ];
@@ -61,7 +69,8 @@ module.exports.metadata =
   "cordova-plugin-camera": "4.0.3",
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-firebase": "0.1.20"
+  "cordova-plugin-splashscreen": "5.0.2",
+  "cordova-plugin-device": "2.0.2"
 };
 // BOTTOM OF METADATA
 });
