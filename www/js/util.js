@@ -32,27 +32,31 @@ var util = (function() {
     }
 
     function foto() {
-        navigator.camera.getPicture(onSuccess, onFail, {
-            quality: 50,
-            destinationType: Camera.DestinationType.DATA_URL
+        navigator.camera.getPicture(function(result) {
+            console.log("data:image/jpeg;base64," + result);
+        }, function(error) {
+            console.log(error);
+        }, {
+            sourceType: Camera.PictureSourceType.CAMERA
         });
     }
 
-    function onSuccess(imageData) {
-        var image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + imageData;
+    function galeria() {
+        navigator.camera.getPicture(function(result) {
+            console.log("data:image/jpeg;base64," + result);
+        }, function(error) {
+            console.log(error);
+        }, {
+            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
+        });
     }
 
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
 
     return {
         setUUID: setUUID,
         getUUID: getUUID,
         changePage: changePage,
-        onSuccess: onSuccess,
-        onFail: onFail,
-        foto: foto
+        foto: foto,
+        galeria: galeria
     }
 })(util || {});
