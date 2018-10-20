@@ -2,16 +2,42 @@ var util = (function() {
 
     var UUID;
 
-    function setUUID(){
+    function setUUID() {
         UUID = device.uuid;
     }
 
-    function getUUID(){
+    function getUUID() {
         return (UUID) ? UUID : null;
     }
 
-    return{
-       setUUID  : setUUID,
-       getUUID  : getUUID
+    function changePage(page, reverse) {
+        $.mobile.changePage('html/' + page, {
+            reverse: !!reverse
+        });
+    }
+
+    function foto() {
+        navigator.camera.getPicture(onSuccess, onFail, {
+            quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL
+        });
+    }
+
+    function onSuccess(imageData) {
+        var image = document.getElementById('myImage');
+        image.src = "data:image/jpeg;base64," + imageData;
+    }
+
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
+
+    return {
+        setUUID: setUUID,
+        getUUID: getUUID,
+        changePage: changePage,
+        onSuccess: onSuccess,
+        onFail: onFail,
+        foto: foto
     }
 })(util || {});

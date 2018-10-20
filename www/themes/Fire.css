@@ -224,7 +224,7 @@ html .ui-alt-icon .ui-radio-off:after {
 html .ui-bar-a .ui-bar-inherit,
 html .ui-body-a .ui-bar-inherit,
 html body .ui-group-theme-a .ui-bar-inherit {
-	background-color: #c1272d /*{a-bar-background-color}*/;
+	background-color: #e0565b /*{a-bar-background-color}*/;
 	border-color: #6a1518 /*{a-bar-border}*/;
 	color: #ffffff /*{a-bar-color}*/;
 	text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #444444 /*{a-bar-shadow-color}*/;
@@ -297,9 +297,9 @@ html .ui-bar-a .ui-btn:visited,
 html .ui-body-a .ui-btn:visited,
 html body .ui-group-theme-a .ui-btn:visited,
 html head + body .ui-btn.ui-btn-a:visited {
-	background-color: #c1272d /*{a-bup-background-color}*/;
+	background-color: #fff /*{a-bup-background-color}*/;
 	border-color: #6a1518 /*{a-bup-border}*/;
-	color: #ffffff /*{a-bup-color}*/;
+	color: #000 /*{a-bup-color}*/;
 	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #444444 /*{a-bup-shadow-color}*/;
 }
 /* Button hover */
@@ -743,5 +743,27 @@ button[disabled],
 .ui-noboxshadow .ui-focus {
 	outline-width: 1px;
 	outline-style: auto;
+}
+
+/* Set the background image sources */
+#newyork { background-image: url("../_assets/img/newyork.jpg"); }
+#buenosaires { background-image: url("../_assets/img/buenosaires.jpg"); }
+#paris { background-image: url("../_assets/img/paris.jpg"); }
+#capetown { background-image: url("../_assets/img/capetown.jpg"); }
+#seoul { background-image: url("../_assets/img/seoul.jpg"); }
+#sydney { background-image: url("../_assets/img/sydney.jpg"); }
+
+/* The footer won't have a height because there are only two absolute positioned elements in it.
+So we position the buttons from the bottom. */
+.control.ui-btn-left,
+.trivia-btn.ui-btn-right {
+    top: auto;
+    bottom: 7px;
+    margin: 0;
+}
+/* Custom styling for the trivia source */
+small {
+    font-size: .75em;
+    color: #666;
 }
 			
