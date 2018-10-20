@@ -4,6 +4,7 @@ var util = (function() {
 
     function setUUID() {
         UUID = device.uuid;
+        Services.ServiciosAJAX("activarUsuario", getUUID(), getUUID());
     }
 
     function getUUID() {
