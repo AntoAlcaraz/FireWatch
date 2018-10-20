@@ -54,7 +54,7 @@ index = (function() {
                 .appendTo(cList);
             var aaa = $('<a/>')
                 //.addClass('ui-all')
-                //.text(countries[i])
+                .attr('onClick', 'util.irADetalle('+listaCompleta.data[x].id+')')
                 .appendTo(li);
             var h2 = $('<h2/>')
                 //.addClass('ui-all')
