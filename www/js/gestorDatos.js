@@ -12,8 +12,8 @@ var gestorDatos = (function() {
         NotificacionActual = {};
     }
 
-    function setNotificaciones(serverArray){
-
+    function setNotificaciones(serverJSONArray){
+        Notificaciones = serverJSONArray;
     }
 
     function getNotificaciones(){
@@ -21,7 +21,7 @@ var gestorDatos = (function() {
     }
 
     function setNotificacionActual(idNot){
-        NotificacionActual = jQuery.grep(Notificaciones, function( a ) {return a.ID == idNot;});
+        NotificacionActual = jQuery.grep(Notificaciones, function( a ) {return a.id == idNot;});
     }
 
     function getNotificacionActual(){

@@ -4,7 +4,21 @@ var util = (function() {
 
     function setUUID() {
         UUID = device.uuid;
-        Services.ServiciosAJAX("activarUsuario", getUUID(), null);
+
+
+        var callback = function(){
+            var cargarListado = function(){
+
+                //Una vez tenemos todas las notificaciones, cargamos el listado de notificaciones    
+                pantallaPrincipal.cargarListado();
+            }
+
+            //una vez activado el usuario, obtenemos todos las notificaciones del servidor
+            pantallaPrincipal.cargaFuegosNotificados_List(cargarListado);
+        }
+
+        //Activamos el usuario contra el server
+        Services.ServiciosAJAXusuario(callback);
     }
 
     function getUUID() {

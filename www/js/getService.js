@@ -2,8 +2,8 @@ var Services = {};
 
 Services = (function() {
 
-    var SERVER_URL = "http://jsninjadevs.000webhostapp.com/firewatch.php";
-    var SERVER_URL_CLON = "http://jsninjadevs.000webhostapp.com/firewatch.php";
+    var SERVER_URL = "http://10.118.252.65/NASA/firewatch.php";
+    var SERVER_URL_ONLINE = "http://jsninjadevs.000webhostapp.com/firewatch.php";
 
     /**
     * INFO DE LAS LLAMADAS AL SERVICE
@@ -24,9 +24,6 @@ Services = (function() {
     */
 
     var ServiciosAJAX = function(Action, confData, callback) {
-
-
-
         $.ajax({
             type : "POST",
             url: SERVER_URL,
@@ -51,8 +48,32 @@ Services = (function() {
         });
     }
 
+    var ServiciosAJAXusuario = function(callback) {
+        $.ajax({
+            type : "POST",
+            url: SERVER_URL,
+            data: {action: "activarUsuario", uuid: util.getUUID()},
+            success: function(response) {
+                try {
+                    //var res = JSON.parse(response);
+                    
+                    if(callback){
+                        callback();
+                    }
+
+                } catch(e) {
+                    var errrorCB = e;
+                }
+            },
+            error: function(error) {
+                 var errrorCB = error;
+            }
+        });
+    }
+
     return {
-        ServiciosAJAX: ServiciosAJAX
+        ServiciosAJAX           : ServiciosAJAX,
+        ServiciosAJAXusuario    : ServiciosAJAXusuario
     };
 
 })();

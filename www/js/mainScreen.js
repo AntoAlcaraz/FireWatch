@@ -4,17 +4,31 @@
 */
 var pantallaPrincipal = (function() {
 
-    function cargaFuegosNotificados_List(){
-        //TODO  recoleccion de datos desde servicio PHP
+    function cargaFuegosNotificados_List(callback){
+
+        var callbackList = function (datosNotificaciones){
+            gestorDatos.setNotificaciones(datosNotificaciones);
+            if(callback){
+                callback();
+            }
+        }
+
+        Services.ServiciosAJAX("getFuegos", "", callbackList);
     }
 
-    function cargaFuegosNotificados_Map(){
+    function cargaMapa(){
+         var listaCompleta = gestorDatos.getNotificaciones();
         //TODO una vez tenemos los datos en un objeto, cargamos los puntos en el mapa
+    }
+
+    function cargarListado(){
+        var listaCompleta = gestorDatos.getNotificaciones();
+
     }
 
     return{
         cargaFuegosNotificados_List : cargaFuegosNotificados_List,
-        cargaFuegosNotificados_Map  : cargaFuegosNotificados_Map
+        cargaMapa       : cargaMapa,
+        cargarListado   : cargarListado
     }
 })(pantallaPrincipal || {});
-
