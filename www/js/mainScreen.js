@@ -24,6 +24,30 @@ var pantallaPrincipal = (function() {
     function cargarListado(){
         var listaCompleta = gestorDatos.getNotificaciones();
 
+        var limite = (listaCompleta.length > 20) ? 20 : listaCompleta.length;
+
+        var cList = $('#listadoNotificaciones');
+
+        for(var x=0; x < limite; x++){
+
+            var li = $('<li/>')
+                //.addClass('ui-menu-item')
+                //.attr('role', 'menuitem')
+                .appendTo(cList);
+            var aaa = $('<a/>')
+                //.addClass('ui-all')
+                //.text(countries[i])
+                .appendTo(li);
+            var h2 = $('<h2/>')
+                //.addClass('ui-all')
+                .text(countries[i])
+                .appendTo(aaa);
+            var p = $('<p/>')
+                //.addClass('ui-all')
+                .text(listaCompleta[x].)
+                .appendTo(aaa);
+        }
+
     }
 
     return{
