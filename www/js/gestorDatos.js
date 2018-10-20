@@ -29,7 +29,11 @@ var gestorDatos = (function() {
     }
 
     return{
-        
+        inicializarVariables    : inicializarVariables,
+        setNotificaciones       : setNotificaciones,
+        getNotificaciones       : getNotificaciones,
+        setNotificacionActual   : setNotificacionActual,
+        getNotificacionActual   : getNotificacionActual
     }
 })(gestorDatos || {});
 
