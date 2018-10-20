@@ -5,11 +5,11 @@
 var pantallaPrincipal = (function() {
 
     function cargaFuegosNotificados_List(){
-
+        //TODO  recoleccion de datos desde servicio PHP
     }
 
     function cargaFuegosNotificados_Map(){
-
+        //TODO una vez tenemos los datos en un objeto, cargamos los puntos en el mapa
     }
 
     return{
