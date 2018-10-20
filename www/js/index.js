@@ -28,6 +28,10 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+
+        setTimeout(function(){
+            $.mobile.changePage("html/mainScreen.html", "fade");
+        }, 3000);
     },
 
     // Update DOM on a Received Event
@@ -44,3 +48,4 @@ var app = {
 };
 
 app.initialize();
+
