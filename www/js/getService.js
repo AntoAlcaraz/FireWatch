@@ -20,7 +20,7 @@ Services = (function() {
         getFotos         : "",
         createFuegos     : getUUID()
         
-    } Services.ServiciosAJAX("activarUsuario", getUUID(), getUUID())
+    } Services.ServiciosAJAX("activarUsuario", getUUID(), getUUID());
     */
 
     var ServiciosAJAX = function(Action, confData, callback) {
@@ -34,19 +34,25 @@ Services = (function() {
             success: function(response) {
                 try {
                     var res = JSON.parse(response);
-                    if(callback) callback(res);
+                    if(callback){
+                        callback(res);
+                    }    
                 } catch(e) {
-                    if(callback) callback(e);
+                    if(callback){ 
+                        callback(e);
+                    }
                 }
             },
             error: function(error) {
-                if(callback) callback(error);
+                if(callback){
+                    callback(error);
+                } 
             }
         });
     }
 
     return {
-        getNotificaciones: getNotificaciones
+        ServiciosAJAX: ServiciosAJAX
     };
 
 })();
