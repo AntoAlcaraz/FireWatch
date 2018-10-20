@@ -2,21 +2,8 @@ var util = (function() {
 
     var UUID;
 
-    function setUUID() {
+    function setUUID(callback) {
         UUID = device.uuid;
-
-
-        var callback = function(){
-            var cargarListado = function(){
-
-                //Una vez tenemos todas las notificaciones, cargamos el listado de notificaciones    
-                pantallaPrincipal.cargarListado();
-            }
-
-            //una vez activado el usuario, obtenemos todos las notificaciones del servidor
-            pantallaPrincipal.cargaFuegosNotificados_List(cargarListado);
-        }
-
         //Activamos el usuario contra el server
         Services.ServiciosAJAXusuario(callback);
     }
