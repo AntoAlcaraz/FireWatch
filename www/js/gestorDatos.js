@@ -6,12 +6,25 @@ var gestorDatos = (function() {
 
     var Notificaciones = [];
     var NotificacionActual = {};
+    var NuevaNotificacion = {
+        DatosGPS : {},
+        DatosFotos : {},
+        DatosObservaciones : ""
+    }
 
     function inicializarVariables(){
         Notificaciones = [];
         NotificacionActual = {};
+        NuevaNotificacion = {
+            DatosGPS : {},
+            DatosFotos : {},
+            DatosObservaciones : ""
+        }
     }
 
+    /**
+    *   NOTIFICACIONES DE FUEGO - TOTAL Y SELECCIONADA
+    */
     function setNotificaciones(serverJSONArray){
         Notificaciones = serverJSONArray;
     }
@@ -28,12 +41,35 @@ var gestorDatos = (function() {
         return (NotificacionActual) ? NotificacionActual : null;
     }
 
+    /**
+    *   CREACION DE NUEVAS NOTIFICACIONES DE FUEGO
+    */
+    function setDatosGPS(objectGPS){
+        NuevaNotificacion.DatosGPS = objectGPS;
+    }
+
+    function setDatosFotos(objectFotos){
+        NuevaNotificacion.DatosFotos = objectFotos;
+    }
+
+    function setDatosObservaciones(stringObservacion){
+        NuevaNotificacion.DatosObservaciones = stringObservacion;
+    }
+
+    function getNuevaNotificacion(){
+        return NuevaNotificacion;
+    }
+
     return{
         inicializarVariables    : inicializarVariables,
         setNotificaciones       : setNotificaciones,
         getNotificaciones       : getNotificaciones,
         setNotificacionActual   : setNotificacionActual,
-        getNotificacionActual   : getNotificacionActual
+        getNotificacionActual   : getNotificacionActual,
+        setDatosGPS             : setDatosGPS,
+        setDatosFotos           : setDatosFotos,
+        setDatosObservaciones   : setDatosObservaciones,
+        getNuevaNotificacion    : getNuevaNotificacion
     }
 })(gestorDatos || {});
 
