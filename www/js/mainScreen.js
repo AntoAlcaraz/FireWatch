@@ -24,7 +24,7 @@ var pantallaPrincipal = (function() {
     function cargarListado(){
         var listaCompleta = gestorDatos.getNotificaciones();
 
-        var limite = (listaCompleta.length > 20) ? 20 : listaCompleta.length;
+        var limite = (listaCompleta.data.length > 20) ? 20 : listaCompleta.data.length;
 
         var cList = $('#listadoNotificaciones');
 
@@ -40,14 +40,15 @@ var pantallaPrincipal = (function() {
                 .appendTo(li);
             var h2 = $('<h2/>')
                 //.addClass('ui-all')
-                .text(countries[i])
+                .text("LAT: "+listaCompleta.data[x].lat+" - LONG: "+listaCompleta.data[x].lon)
                 .appendTo(aaa);
             var p = $('<p/>')
                 //.addClass('ui-all')
-                .text(listaCompleta[x].)
+                .text(listaCompleta.data[x].comentario)
                 .appendTo(aaa);
         }
 
+        $('#listadoNotificaciones').listview( "refresh" );
     }
 
     return{
