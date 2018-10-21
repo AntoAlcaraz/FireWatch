@@ -50,12 +50,24 @@ var util = (function() {
 
     }
 
+    function traducirCoordenadas(long, lat, id){
+        var localidad = data.address.village;
+        var pais = data.address.country;
+
+        $.getJSON('https://nominatim.openstreetmap.org/reverse?json_callback=?&format=json', {lat: lat, lon: long}, function(data) {
+           if(id){
+                $('#'+id).val(localidad +" ("+pais+")");
+           } 
+        });
+    }
+
     return {
         setUUID     : setUUID,
         getUUID     : getUUID,
         changePage  : changePage,
         foto        : foto,
         galeria     : galeria,
-        irADetalle  : irADetalle
+        irADetalle  : irADetalle,
+        traducirCoordenadas : traducirCoordenadas
     }
 })(util || {});
