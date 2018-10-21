@@ -420,12 +420,10 @@ button[disabled],
 }
 
 /* Set the background image sources */
-#newyork { background-image: url("../_assets/img/newyork.jpg"); }
-#buenosaires { background-image: url("../_assets/img/buenosaires.jpg"); }
-#paris { background-image: url("../_assets/img/paris.jpg"); }
-#capetown { background-image: url("../_assets/img/capetown.jpg"); }
-#seoul { background-image: url("../_assets/img/seoul.jpg"); }
-#sydney { background-image: url("../_assets/img/sydney.jpg"); }
+#img1 { background-image: url("../_assets/img/img1.jpg"); }
+#img2 { background-image: url("../_assets/img/img2.jpg"); }
+#img3 { background-image: url("../_assets/img/img3.jpg"); }
+
 
 /* The footer won't have a height because there are only two absolute positioned elements in it.
 So we position the buttons from the bottom. */
@@ -440,4 +438,23 @@ small {
     font-size: .75em;
     color: #666;
 }
-			
+.imagen{
+	    width: 32% !important;
+    height: 50px;
+    float: left;
+    padding: 1px;
+    margin: 0px;
+}
+.imagen2{
+	width: 100%;
+	float: left;
+}
+.contenedor{
+	width: 100%;
+	float: left;
+}
+
+.parrafo{
+	padding: 0px !important;
+    margin: 0px !important;
+}

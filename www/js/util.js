@@ -41,12 +41,21 @@ var util = (function() {
         });
     }
 
+    function irADetalle(idNotificacion){
+
+        gestorDatos.setNotificacionActual(idNotificacion)
+
+        //ChangePage
+        util.changePage('page_detalle.html');
+
+    }
 
     return {
-        setUUID: setUUID,
-        getUUID: getUUID,
-        changePage: changePage,
-        foto: foto,
-        galeria: galeria
+        setUUID     : setUUID,
+        getUUID     : getUUID,
+        changePage  : changePage,
+        foto        : foto,
+        galeria     : galeria,
+        irADetalle  : irADetalle
     }
 })(util || {});
