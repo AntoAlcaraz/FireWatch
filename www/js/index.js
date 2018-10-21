@@ -10,7 +10,7 @@ index = (function() {
         });
     }, false);
 
-    $(document).on("pagebeforeshow","#page_detalle",function(){
+    $(document).on("pageshow","#page_detalle",function(){
         page_detalle.rellenarForm();
     });
 
