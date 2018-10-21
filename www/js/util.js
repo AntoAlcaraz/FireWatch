@@ -3,9 +3,10 @@ var util = (function() {
     var UUID;
 
     function setUUID(callback) {
-        UUID = device.uuid;
-        //Activamos el usuario contra el server
-        Services.ServiciosAJAXusuario(callback);
+        //UUID = device.uuid;
+
+        UUID = "4e41a8367f289755";
+        
     }
 
     function getUUID() {
@@ -73,7 +74,7 @@ var util = (function() {
         galeria     : galeria,
         irADetalle  : irADetalle,
         traducirCoordenadas : traducirCoordenadas,
-        showCountry : showCountry
+        showCountry : showCountry,
         irADetalle  : irADetalle
     }
 })(util || {});
