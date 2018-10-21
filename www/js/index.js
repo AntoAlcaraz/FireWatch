@@ -1,15 +1,27 @@
 var index = {};
 index = (function() {
 
+    var fireIcon = L.icon({
+        iconUrl: 'img/logo.png',
+
+        iconSize:     [20, 40] /*, // size of the icon
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor*/
+    });
+
     $(document).on("pagebeforeshow","#page_detalle",function(){
         page_detalle.rellenarForm();
     });
 
     $(document).on("pageshow","#mainScreen",function(){
-        //Activamos el usuario contra el server
-        Services.ServiciosAJAXusuario(function() {
-            cargaFuegosNotificados_List();
-        });
+
+        setTimeout(function() {
+            //Activamos el usuario contra el server
+            Services.ServiciosAJAXusuario(function() {
+                cargaFuegosNotificados_List();
+            });
+        }, 3000);
     });
 
     $(document).on("pageshow","#page_insertar",function(){
@@ -49,10 +61,10 @@ index = (function() {
             L.control.scale().addTo(map);
 
             var listaCompleta = gestorDatos.getNotificaciones();
-            var limite = (listaCompleta.data.length > 500) ? 500 : listaCompleta.data.length;
+            var limite = (listaCompleta.data.length > 100) ? 100 : listaCompleta.data.length;
 
             for(var x=0; x < limite; x++) {
-                L.marker([listaCompleta.data[x].lat, listaCompleta.data[x].lon],{}).addTo(map);
+                L.marker([listaCompleta.data[x].lat, listaCompleta.data[x].lon],{icon: fireIcon}).addTo(map).bindPopup("<div><h2>Fuego detactado</h2><button onClick='util.irADetalle("+listaCompleta.data[x].id+")' class='ui-btn' >Ver</button></div>")
             }
         });
 
@@ -65,7 +77,7 @@ index = (function() {
             return;
         }
 
-        var limite = (listaCompleta.data.length > 20) ? 20 : listaCompleta.data.length;
+        var limite = (listaCompleta.data.length > 100) ? 100 : listaCompleta.data.length;
 
         var cList = $('#listadoNotificaciones');
 
