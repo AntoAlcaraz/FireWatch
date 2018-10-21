@@ -42,7 +42,8 @@ var util = (function() {
 
         gestorDatos.setNotificacionActual(idNotificacion)
 
-        //ChangePage    
+        //ChangePage
+        util.changePage('page_detalle.html');
 
     }
 

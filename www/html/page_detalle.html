@@ -1,3 +1,13 @@
+<script type="text/javascript">
+$(document).on("pagecreate", function() {
+    $(".photopopup").on({
+        popupbeforeposition: function() {
+            var maxHeight = $(window).height() - 60 + "px";
+            $(".photopopup img").css("max-height", maxHeight);
+        }
+    });
+});
+</script>
 <div id="page_detalle" data-role="page" class="demo-page" data-dom-cache="true" data-theme="a" data-prev="prevCity" data-next="nextCity" data-url="city">
     <div data-role="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
         <h1> FireWatch </h1>
@@ -5,19 +15,45 @@
     <div role="main" class="ui-content">
         <div class="ui-field-contain">
                 <label for="textinput-1">Regi&oacute;n/Zona:</label>
-                <input disabled="disabled" type="text" name="textinput-1" id="textinput-1" placeholder="Text input" value="">
+                <p id="regionZona" class="parrafo">Alicante</p>
         </div>
-        <div data-demo-html="#city" data-demo-js="#demo-script" data-demo-css="#demo-style">
-            <p><a href="newyork.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Galleria imagenes</a></p>
-        </div>
-        <div id="trivia-city" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="a">
-            <a href="#" data-rel="back" class="ui-btn ui-btn-right ui-btn-b ui-btn-icon-notext ui-icon-delete ui-corner-all">Close</a>
-            <p>Here some text.</p>
-        </div>
-        <!-- MAPA-->
         <div class="ui-field-contain">
+                <label for="textinput-1">Fecha/Hora:</label>
+                <p id="FechaHora" class="parrafo">14/09/2018 14:00</p>
+                
         </div>
-    </div><!-- /content -->
+        <div class="ui-field-contain">
+                <label for="textarea">Comentario:</label>
+                <textarea cols="40" rows="8" name="textarea" id="coment"></textarea>
+        </div>
+        <div class="ui-field-contain"s>
+            <label for="textarea">Imagenes:</label>
+            <a href="#popupImg1" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline imagen">
+                <img src="img/img1.jpg" alt="Photo landscape"  width="100%">
+            </a>
+            <div data-role="popup" id="popupImg1" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/img1.jpg" alt="Photo landscape">
+            </div>
+                <a href="#popupImg2" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline imagen">
+                <img src="img/img2.jpg" alt="Photo landscape"  width="100%">
+            </a>
+                <div data-role="popup" id="popupImg2" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/img2.jpg" alt="Photo landscape">
+            </div>
+                    <a href="#popupImg3" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline imagen">
+                <img src="img/img3.jpg" alt="Photo landscape" width="100%">
+            </a>
+                    <div data-role="popup" id="popupImg3" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/img3.jpg" alt="Photo landscape">
+            </div>
+        </div>
+        <div class="ui-field-contain">
+                <a href="#" class="ui-btn" onclick="">Mapa</a>
+        </div>
+    </div>
+    <!-- MAPA-->
+    <div class="ui-field-contain">
+    </div>
     <div data-role="footer" data-position="fixed">
     </div>
 </div>

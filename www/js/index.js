@@ -10,6 +10,10 @@ index = (function() {
         });
     }, false);
 
+    $(document).on("pagebeforeshow","#page_detalle",function(){
+        page_detalle.rellenarForm();
+    });
+
     var cargaFuegosNotificados_List = function (callback){
 
         Services.ServiciosAJAX("getFuegos", "", function (datosNotificaciones){
