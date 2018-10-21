@@ -50,13 +50,18 @@ index = (function() {
     var cargarListado = function (){
         var listaCompleta = gestorDatos.getNotificaciones();
 
+        if(!listaCompleta || !listaCompleta.data || listaCompleta.data.length === 0){
+            return;
+        }
+
         var limite = (listaCompleta.data.length > 20) ? 20 : listaCompleta.data.length;
 
         var cList = $('#listadoNotificaciones');
 
         for(var x=0; x < limite; x++){
 
-            var idLista = Noti_+listaCompleta.data[x].lat+'_'+listaCompleta.data[x].lon;
+            var idLista = 'Noti_'+listaCompleta.data[x].lat+'_'+listaCompleta.data[x].lon;
+            idLista = idLista.replace('.','').replace('.','');
 
             var li = $('<li/>')
                 //.addClass('ui-menu-item')
@@ -66,7 +71,7 @@ index = (function() {
                 .attr('onClick', 'util.irADetalle('+listaCompleta.data[x].id+')')
                 .appendTo(li);
             var h2 = $('<h2/>')
-                .id(idLista)
+                .attr('id',idLista)
                 .text("LAT: "+listaCompleta.data[x].lat+" - LONG: "+listaCompleta.data[x].lon)
                 .appendTo(aaa);
             var p = $('<p/>')
@@ -74,7 +79,9 @@ index = (function() {
                 .text(listaCompleta.data[x].comentario)
                 .appendTo(aaa);
 
-                util.traducirCoordenadas(listaCompleta.data[x].lon,listaCompleta.data[x].lat, idLista);
+                if(x==0){
+                    util.traducirCoordenadas(listaCompleta.data[x].lon,listaCompleta.data[x].lat, idLista);
+                }    
         }
 
         $('#listadoNotificaciones').listview( "refresh" );
