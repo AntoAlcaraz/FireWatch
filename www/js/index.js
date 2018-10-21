@@ -33,6 +33,11 @@ index = (function() {
        
     });
 
+    $(document).on("click","#salir",function(){
+        //Activamos el usuario contra el server
+       $.mobile.changePage('../index.html');
+    });
+
     var cargaFuegosNotificados_List = function (callback){
 
         Services.ServiciosAJAX("getFuegos", "", function (datosNotificaciones) {
