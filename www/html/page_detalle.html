@@ -29,32 +29,32 @@ $(document).on("pagecreate", function() {
         <div class="ui-field-contain"s>
             <label for="textarea">Imagenes:</label>
             <a href="#popupImg1" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline imagen">
-                <img src="img/img1.jpg" alt="Photo landscape"  width="100%">
+                <img src="../img/img1.jpg" alt="Photo landscape"  width="100%">
             </a>
             <div data-role="popup" id="popupImg1" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/img1.jpg" alt="Photo landscape">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="../img/img1.jpg" alt="Photo landscape">
             </div>
                 <a href="#popupImg2" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline imagen">
-                <img src="img/img2.jpg" alt="Photo landscape"  width="100%">
+                <img src="../img/img2.jpg" alt="Photo landscape"  width="100%">
             </a>
                 <div data-role="popup" id="popupImg2" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/img2.jpg" alt="Photo landscape">
+                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="../img/img2.jpg" alt="Photo landscape">
             </div>
                     <a href="#popupImg3" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline imagen">
-                <img src="img/img3.jpg" alt="Photo landscape" width="100%">
+                <img src="../img/img3.jpg" alt="Photo landscape" width="100%">
             </a>
                     <div data-role="popup" id="popupImg3" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/img3.jpg" alt="Photo landscape">
+                            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="../img/img3.jpg" alt="Photo landscape">
             </div>
         </div>
         <div class="ui-field-contain">
-                <a href="#" class="ui-btn" onclick="">Mapa</a>
+                <a onclick="page_detalle.abrirMapa()" class="ui-btn" >Abrir Mapa</a>
         </div>
     </div>
     <!-- MAPA-->
     <div class="ui-field-contain">
     </div>
-    <div data-role="footer" data-position="fixed">
-        <a class="ui-btn ui-corner-all" data-rel="back">Volver</a>
+    <div data-role="footer" data-position="fixed" style="text-align: center !important;">
+        <a class="ui-btn ui-corner-all" data-rel="back" style="width: 50% !important;">Volver</a>
     </div>
 </div>

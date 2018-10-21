@@ -17,8 +17,17 @@ var page_detalle = (function() {
 
     }
 
+    function abrirMapa(){
+    var datos = gestorDatos.getNotificacionActual();
+    var coord = datos.lat+','+datos.lon;
+        page_insert.getCoords(function(res){
+            window.open("geo:"+coord );
+        });
+    }
+
     return {
-        rellenarForm: rellenarForm
+        rellenarForm: rellenarForm,
+        abrirMapa: abrirMapa
     }
 
 })(page_detalle || {});
