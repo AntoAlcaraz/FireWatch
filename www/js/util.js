@@ -4,8 +4,9 @@ var util = (function() {
 
     function setUUID(callback) {
         UUID = device.uuid;
-        //Activamos el usuario contra el server
-        Services.ServiciosAJAXusuario(callback);
+
+        //UUID = "4e41a8367f289755";
+        
     }
 
     function getUUID() {

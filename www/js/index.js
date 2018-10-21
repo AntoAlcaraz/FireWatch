@@ -1,45 +1,51 @@
 var index = {};
 index = (function() {
 
+    $(document).on("pagebeforeshow","#page_detalle",function(){
+        page_detalle.rellenarForm();
+    });
 
-    document.addEventListener('deviceready', function() {
-
-        util.setUUID(function() {
-            //una vez activado el usuario, obtenemos todos las notificaciones del servidor
+    $(document).on("pageshow","#mainScreen",function(){
+        //Activamos el usuario contra el server
+        Services.ServiciosAJAXusuario(function() {
             cargaFuegosNotificados_List();
         });
-    }, false);
-
-    $(document).on("pageshow","#page_detalle",function(){
-        page_detalle.rellenarForm();
     });
 
     var cargaFuegosNotificados_List = function (callback){
 
-        Services.ServiciosAJAX("getFuegos", "", function (datosNotificaciones){
+        Services.ServiciosAJAX("getFuegos", "", function (datosNotificaciones) {
             gestorDatos.setNotificaciones(datosNotificaciones);
          
             cargarListado();
+
             cargaMapa();
+
         });
 
     }
 
     var cargaMapa = function (){
-        var map = L.map('mapContainer').setView([41.66, -4.72], 15);
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'OpenStreetMap',
-            maxZoom: 18
-        }).addTo(map);
 
-        L.control.scale().addTo(map);
+        page_insert.getCoords(function(coords) {
 
-        var listaCompleta = gestorDatos.getNotificaciones();
-        var limite = (listaCompleta.data.length > 20) ? 20 : listaCompleta.data.length;
+            console.log(coords);
 
-        for(var x=0; x < limite; x++) {
-            L.marker([listaCompleta.data[x].lat, listaCompleta.data[x].lon],{}).addTo(map);
-        }
+            var map = L.map('mapContainer', {preferCanvas: true}).setView([coords.lat, coords.lon], 5);
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'OpenStreetMap',
+                maxZoom: 18
+            }).addTo(map);
+
+            L.control.scale().addTo(map);
+
+            var listaCompleta = gestorDatos.getNotificaciones();
+            var limite = (listaCompleta.data.length > 500) ? 500 : listaCompleta.data.length;
+
+            for(var x=0; x < limite; x++) {
+                L.marker([listaCompleta.data[x].lat, listaCompleta.data[x].lon],{}).addTo(map);
+            }
+        });
 
     }
 
@@ -79,8 +85,20 @@ index = (function() {
         $('#listadoNotificaciones').listview( "refresh" );
     }
 
-    return {
 
+    return {
+        cargaFuegosNotificados_List: cargaFuegosNotificados_List
     }
 
 })();
+
+
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+    util.setUUID(function() {
+        //una vez activado el usuario, obtenemos todos las notificaciones del servidor
+
+        index.cargaFuegosNotificados_List();
+    });
+}
