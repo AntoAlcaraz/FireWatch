@@ -35,9 +35,9 @@ Services = (function() {
                         callback(res);
                     }    
                 } catch(e) {
-                    if(callback){ 
-                        callback(e);
-                    }
+                   // if(callback){ 
+                    //    callback(e);
+                   // }
                 }
             },
             error: function(error) {
