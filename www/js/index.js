@@ -52,22 +52,25 @@ index = (function() {
 
         for(var x=0; x < limite; x++){
 
+            var idLista = Noti_+listaCompleta.data[x].lat+'_'+listaCompleta.data[x].lon;
+
             var li = $('<li/>')
                 //.addClass('ui-menu-item')
                 //.attr('role', 'menuitem')
                 .appendTo(cList);
             var aaa = $('<a/>')
-                //.addClass('ui-all')
                 .attr('onClick', 'util.irADetalle('+listaCompleta.data[x].id+')')
                 .appendTo(li);
             var h2 = $('<h2/>')
-                //.addClass('ui-all')
+                .id(idLista)
                 .text("LAT: "+listaCompleta.data[x].lat+" - LONG: "+listaCompleta.data[x].lon)
                 .appendTo(aaa);
             var p = $('<p/>')
                 //.addClass('ui-all')
                 .text(listaCompleta.data[x].comentario)
                 .appendTo(aaa);
+
+                util.traducirCoordenadas(listaCompleta.data[x].lon,listaCompleta.data[x].lat, idLista);
         }
 
         $('#listadoNotificaciones').listview( "refresh" );
