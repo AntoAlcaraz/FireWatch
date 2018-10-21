@@ -2,15 +2,19 @@ var index = {};
 index = (function() {
 
 
-    //document.addEventListener('deviceready', function() {
+    document.addEventListener('deviceready', function() {
         util.setUUID(function() {
             //una vez activado el usuario, obtenemos todos las notificaciones del servidor
             cargaFuegosNotificados_List();
         });
-    //}, false);
+    }, false);
 
     $(document).on("pagebeforeshow","#page_detalle",function(){
         page_detalle.rellenarForm();
+    });
+
+    $(document).on("pageshow","#mainScreen",function(){
+        cargaMapa();
     });
 
     var cargaFuegosNotificados_List = function (callback){
@@ -19,8 +23,7 @@ index = (function() {
             gestorDatos.setNotificaciones(datosNotificaciones);
          
             cargarListado();
-
-            cargaMapa();
+            
         });
 
     }
