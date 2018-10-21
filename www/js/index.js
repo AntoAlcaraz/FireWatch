@@ -12,6 +12,15 @@ index = (function() {
         });
     });
 
+    $(document).on("pageshow","#page_insertar",function(){
+        //Activamos el usuario contra el server
+        page_insert.getCoords(function(res){
+
+            util.traducirCoordenadas(res.lat , res.lon, 'coordInsert');
+        });
+       
+    });
+
     var cargaFuegosNotificados_List = function (callback){
 
         Services.ServiciosAJAX("getFuegos", "", function (datosNotificaciones) {

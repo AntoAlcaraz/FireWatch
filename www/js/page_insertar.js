@@ -13,7 +13,8 @@ var page_insert = (function() {
             callback({lat: location.coords.latitude, lon: location.coords.longitude});
         });
     }
-    
+
+
 
     return {
         getCoords: getCoords
