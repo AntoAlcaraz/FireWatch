@@ -10,8 +10,7 @@ var page_insert = (function() {
             console.log(location.coords.longitude);
             console.log(location.coords.accuracy);
 
-            location = UTILS.generarCoordenadas(location);
-            callback(location);
+            callback({lat: location.coords.latitude, long: location.coords.longitude});
         });
     }
     

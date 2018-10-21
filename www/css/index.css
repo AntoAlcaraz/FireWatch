@@ -118,13 +118,17 @@ h1 {
     height: calc(100vh - 80px);
 }
 
+#listaTab {
+    overflow-y: auto;
+    height: calc(100vh - 80px);
+}
+
 #mapContainer { 
     height: 100%;
  }
 
 #listadoNotificaciones {
     background-color: #DDD;
-    overflow-y: auto;
 }
 
 #listadoNotificaciones > li > a {
@@ -154,4 +158,8 @@ h1 {
     border: none;
     color: #DEDEDE !important;
     text-shadow: none !important;
+}
+
+#mainScreen {
+    overflow: hidden !important;
 }
