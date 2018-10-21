@@ -61,11 +61,8 @@ index = (function() {
             idLista = idLista.replace('.','').replace('.','');
 
             var li = $('<li/>')
-                //.addClass('ui-menu-item')
-                //.attr('role', 'menuitem')
                 .appendTo(cList);
             var aaa = $('<a/>')
-                //.addClass('ui-all')
                 .attr('onClick', 'util.irADetalle('+listaCompleta.data[x].id+')')
                 .appendTo(li);
             var h2 = $('<h2/>')
@@ -73,13 +70,10 @@ index = (function() {
                 .text("LAT: "+listaCompleta.data[x].lat+" - LONG: "+listaCompleta.data[x].lon)
                 .appendTo(aaa);
             var p = $('<p/>')
-                //.addClass('ui-all')
                 .text(listaCompleta.data[x].comentario)
                 .appendTo(aaa);
 
-                if(x==0){
-                    util.traducirCoordenadas(listaCompleta.data[x].lon,listaCompleta.data[x].lat, idLista);
-                }    
+            util.traducirCoordenadas(listaCompleta.data[x].lat, listaCompleta.data[x].lon, idLista);
         }
 
         $('#listadoNotificaciones').listview( "refresh" );

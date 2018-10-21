@@ -48,21 +48,13 @@ var util = (function() {
     }
 
     function traducirCoordenadas(lat, lon, id) {
-        
-
         $.getJSON('https://nominatim.openstreetmap.org/reverse?json_callback=?&format=json', {lat: lat, lon: lon}, function(data) {
-            var localidad = data.address.town;
+            var localidad = (data.address.city) ? data.address.city : ((data.address.town) ? data.address.town : data.address.village);
             var pais = data.address.country;
             if(id){
-                $('#'+id).val(localidad +" ("+pais+")");
+                $('#'+id).text(localidad +" ("+pais+")");
             } 
         });
-    }
-
-    function showCountry(lat, lon) {
-        $.getJSON('https://nominatim.openstreetmap.org/reverse?json_callback=?&format=json', {lat: lat, lon: lon}, function(data) {
-           alert(data.address);
-       });
     }
 
     return {
@@ -73,7 +65,6 @@ var util = (function() {
         galeria     : galeria,
         irADetalle  : irADetalle,
         traducirCoordenadas : traducirCoordenadas,
-        showCountry : showCountry
         irADetalle  : irADetalle
     }
 })(util || {});
