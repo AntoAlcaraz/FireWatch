@@ -13,41 +13,39 @@
         <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 
-        <script type="text/javascript" src="js/getService.js"></script>
-        <script type="text/javascript" src="js/gestorDatos.js"></script>
-
-        <script type="text/javascript" src="js/leaflet/leaflet-src.js"></script>
-
-        <script type="text/javascript" src="js/util.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/page_insertar.js"></script>
         <script type="text/javascript" src="js/page_detalle.js"></script>
         
-       
+        <script type="text/javascript" src="js/util.js"></script>
+        <script type="text/javascript" src="js/getService.js"></script>
+        <script type="text/javascript" src="js/gestorDatos.js"></script>
+
+        <script type="text/javascript" src="js/leaflet/leaflet-src.js"></script>
     </head>
     <body>
 
         <div id="mainScreen" data-role="page">
-            <div data-role="header" data-id="persistent"  style="border: none;" data-position="fixed" data-tap-toggle="false">
+            <div data-role="header" data-id="persistent" data-position="fixed" data-tap-toggle="false">
                 <h1> FireWatch </h1>
             </div>
             
-            <div data-role="tabs" id="tabs" style="padding: 0px;">
+            <div data-role="tabs" id="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li class="tabElement"><a class="ui-btn-active" style="border: none;" href="#mapaTab" data-ajax="false">Mapa</a></li>
-                        <li class="tabElement"><a style="border: none;" href="#listaTab" data-ajax="false">Listado</a></li>
+                        <li><a href="#listaTab" data-ajax="false">Listado</a></li>
+                        <li><a href="#mapaTab" data-ajax="false">Mapa</a></li>
                     </ul>
-                </div>
-                
-                <div id="mapaTab">
-                    <div id="mapContainer"></div>
                 </div>
                 
                 <div id="listaTab">
                     <ul data-role="listview" id="listadoNotificaciones">
                         
                     </ul>
+                </div>
+
+                <div id="mapaTab" style="height: 100vh;">
+                    <div id="mapContainer" style="height:100%;"></div>
                 </div>
             </div>
 

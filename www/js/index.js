@@ -3,18 +3,15 @@ index = (function() {
 
 
     document.addEventListener('deviceready', function() {
+
         util.setUUID(function() {
             //una vez activado el usuario, obtenemos todos las notificaciones del servidor
             cargaFuegosNotificados_List();
         });
     }, false);
 
-    $(document).on("pagebeforeshow","#page_detalle",function(){
+    $(document).on("pageshow","#page_detalle",function(){
         page_detalle.rellenarForm();
-    });
-
-    $(document).on("pageshow","#mainScreen",function(){
-        cargaMapa();
     });
 
     var cargaFuegosNotificados_List = function (callback){
@@ -23,14 +20,13 @@ index = (function() {
             gestorDatos.setNotificaciones(datosNotificaciones);
          
             cargarListado();
-            
+            cargaMapa();
         });
 
     }
 
     var cargaMapa = function (){
-
-        var map = L.map('mapContainer', {preferCanvas: true}).setView([41.66, -4.72], 15);
+        var map = L.map('mapContainer').setView([41.66, -4.72], 15);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'OpenStreetMap',
             maxZoom: 18
@@ -60,6 +56,7 @@ index = (function() {
 
         for(var x=0; x < limite; x++){
 
+
             var idLista = 'Noti_'+listaCompleta.data[x].lat+'_'+listaCompleta.data[x].lon;
             idLista = idLista.replace('.','').replace('.','');
 
@@ -68,6 +65,7 @@ index = (function() {
                 //.attr('role', 'menuitem')
                 .appendTo(cList);
             var aaa = $('<a/>')
+                //.addClass('ui-all')
                 .attr('onClick', 'util.irADetalle('+listaCompleta.data[x].id+')')
                 .appendTo(li);
             var h2 = $('<h2/>')

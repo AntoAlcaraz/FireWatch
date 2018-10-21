@@ -4,9 +4,6 @@ var util = (function() {
 
     function setUUID(callback) {
         UUID = device.uuid;
-
-        //UUID = "4e41a8367f289755";
-
         //Activamos el usuario contra el server
         Services.ServiciosAJAXusuario(callback);
     }
@@ -77,5 +74,6 @@ var util = (function() {
         irADetalle  : irADetalle,
         traducirCoordenadas : traducirCoordenadas,
         showCountry : showCountry
+        irADetalle  : irADetalle
     }
 })(util || {});
