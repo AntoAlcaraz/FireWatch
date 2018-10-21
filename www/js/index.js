@@ -97,9 +97,13 @@ index = (function() {
         $('#listadoNotificaciones').listview( "refresh" );
     }
 
+    var addFuego = function() {
+        util.changePage('page_insertar.html');
+    }
 
     return {
-        cargaFuegosNotificados_List: cargaFuegosNotificados_List
+        cargaFuegosNotificados_List: cargaFuegosNotificados_List,
+        addFuego: addFuego
     }
 
 })();

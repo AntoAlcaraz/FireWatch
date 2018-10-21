@@ -163,3 +163,21 @@ h1 {
 #mainScreen {
     overflow: hidden !important;
 }
+
+#nuevo {
+    position: fixed;
+    width: 3.5em;
+    height: 3.5em;
+    right: 1em;
+    bottom: 1em;
+    border-radius: 50%;
+    box-shadow: none;
+    text-shadow: none;
+    z-index: 99999;
+    border: none;
+    background-color: #e0565b;
+}
+
+#nuevo::after {
+    background-color: #e0565b;
+}
